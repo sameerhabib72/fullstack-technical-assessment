@@ -76,6 +76,7 @@ export const FAQ = ({ faqs }: FAQProps) => {
                 <span className="font-semibold text-foreground">
                   {faq.question}
                 </span>
+                
                 <ChevronDown
                   className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ml-4 ${
                     openIndex === index ? "rotate-180" : ""

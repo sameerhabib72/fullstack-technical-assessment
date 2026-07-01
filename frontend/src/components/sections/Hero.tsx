@@ -81,6 +81,7 @@ const Hero = ({ data }: HeroProps) => {
                         </a>
                     </div>
 
+
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-white/10">
                         <div>

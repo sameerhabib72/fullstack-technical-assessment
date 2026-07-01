@@ -208,3 +208,4 @@ export const Team = ({ members }: TeamProps) => {
 };
 
 export default Team;
+
