@@ -7,7 +7,7 @@ const inter = Inter({
     subsets: ["latin"],
     display: 'swap',
 });
-
+ 
 // PDF 5.1 - Dynamic Meta Tags
 export const metadata: Metadata = {
     title: {
