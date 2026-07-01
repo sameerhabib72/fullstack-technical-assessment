@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:check": "next-sitemap && next-sitemap --config next-sitemap.config.js",
+    "seo:validate": "npx @axe-core/cli http://localhost:3000",
+    "seo:lighthouse": "lighthouse http://localhost:3000 --output html --output json --output-path ./lighthouse-reports/ --only-categories=seo,performance,accessibility,best-practices"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.2",
@@ -17,9 +20,11 @@
     "postcss": "^8.5.16",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "swr": "^2.4.2",
     "tailwindcss": "^4.3.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.2.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

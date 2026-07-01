@@ -40,11 +40,11 @@ const About = ({ data }: AboutProps) => {
                         <div className="relative w-full h-[300px] sm:h-[400px] rounded-2xl overflow-hidden shadow-xl">
                             <Image
                                 src={aboutData.image || fallbackAbout.image}
-                                alt="About Us"
+                                alt={aboutData.title || "About Us Image"}
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, 50vw"
-                                quality={90}
+                                quality={60}
                             />
                         </div>
                         {/* Floating badge */}

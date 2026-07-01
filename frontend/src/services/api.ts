@@ -7,6 +7,8 @@ const api = axios.create({
         'Accept': 'application/json',
     },
     timeout: 10000,
+        decompress: true,
+
 });
 
 // Response interceptor for consistent error handling (PDF 4.3)

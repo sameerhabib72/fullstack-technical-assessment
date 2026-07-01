@@ -150,7 +150,7 @@ export const Team = ({ members }: TeamProps) => {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 96px, 128px"
-                  quality={90}
+                    quality={60} //90
                 />
               </div>
               <h4 className="text-base sm:text-lg font-bold mt-4 text-foreground">
@@ -208,4 +208,3 @@ export const Team = ({ members }: TeamProps) => {
 };
 
 export default Team;
-

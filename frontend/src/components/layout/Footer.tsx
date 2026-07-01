@@ -42,7 +42,7 @@ export const Footer = () => {
                     {/* Brand */}
                     <div>
                         <h3 className="text-2xl font-bold mb-4">
-                            <span className="text-primary">The Design</span> Firm
+                            <span className="text-primary">The Des</span>ign Firm
                         </h3>
                         <p className="text-muted-foreground text-sm leading-relaxed">
                             Building future-ready digital experiences <br />with Next.js and Laravel.

@@ -51,7 +51,7 @@ export const Portfolio = ({ items }: PortfolioProps) => {
                         </button>
                     ))}
                 </div>
-                
+
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredItems.map((item, index) => (
@@ -65,9 +65,10 @@ export const Portfolio = ({ items }: PortfolioProps) => {
                                     src={item.image}
                                     alt={item.title} // PDF 5.1 - Alt text
                                     fill
+                                    loading="lazy" // PDF 6: Lazy loading
                                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                    quality={90}
+                                    // quality={90}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                                     <div>
