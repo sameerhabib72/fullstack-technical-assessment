@@ -26,9 +26,8 @@ Route::get('/testimonials', [TestimonialController::class, 'index']);
 Route::get('/team', [TeamController::class, 'index']);
 Route::get('/faqs', [FaqController::class, 'index']);
 
-// Contact Form (Rate limit: 5 messages per minute)
+// // Contact Form (Rate limit: 5 messages per minute)
 Route::middleware('throttle:5,1')->post('/contact', [ContactController::class, 'store']);
-
 
 // --- PROTECTED ROUTES (Admin ke liye - Step 10 mein detail se karenge) ---
 // Route::middleware('auth:sanctum')->group(function () {

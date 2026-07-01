@@ -15,6 +15,15 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
+        $middleware->validateCsrfTokens(except: [
+            'api/*', // API routes ko CSRF protection se nikal den
+        ]);
+        
+        $middleware->api(append: [
+            \App\Http\Middleware\CompressResponse::class,
+            \App\Http\Middleware\CacheHeaders::class,
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
 

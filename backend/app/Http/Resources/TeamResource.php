@@ -21,7 +21,9 @@ class TeamResource extends JsonResource
             'bio' => $this->bio,
             'photo' => $this->photo,
             'linkedin' => $this->linkedin_url,
-            'twitter' => $this->twitter_url
+            'twitter' => $this->twitter_url,
+            'facebook' => $this->facebook_url,
+            'instagram' => $this->instagram_url,
         ];
     }
 }
