@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Models\Feature;
+use App\Http\Controllers\Api\BaseController;
+use App\Http\Requests\FeatureStoreRequest;
+use App\Http\Requests\FeatureUpdateRequest;
 use App\Http\Resources\FeatureResource;
-use App\Traits\ApiResponse;
+use App\Services\FeatureService;
 
-class FeatureController extends Controller
+class FeatureController extends BaseController
 {
-    use ApiResponse;
-
-    public function index()
+    public function __construct()
     {
-        // Features ko unke sort_order ke mutabiq mangwana
-        $features = Feature::orderBy('sort_order', 'asc')->get();
-
-        return $this->successResponse(
-            FeatureResource::collection($features),
-            'Features fetched successfully'
-        );
+        $this->service = app(FeatureService::class);
+        $this->resource = FeatureResource::class;
+        $this->storeRequest = FeatureStoreRequest::class;
+        $this->updateRequest = FeatureUpdateRequest::class;
     }
 }

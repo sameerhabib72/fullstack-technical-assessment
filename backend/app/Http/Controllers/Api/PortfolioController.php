@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\BaseController;
+use App\Http\Requests\PortfolioStoreRequest;
+use App\Http\Requests\PortfolioUpdateRequest;
 use App\Http\Resources\PortfolioResource;
-use App\Traits\ApiResponse;
-use App\Models\PortfolioItem;
+use App\Services\PortfolioService;
 
-class PortfolioController extends Controller {
-    use ApiResponse;
-    public function index() {
-        $items =PortfolioItem::orderBy('sort_order')->get();
-        return $this->successResponse(PortfolioResource::collection($items), 'Portfolio fetched');
+class PortfolioController extends BaseController
+{
+    public function __construct()
+    {
+        $this->service = app(PortfolioService::class);
+        $this->resource = PortfolioResource::class;
+        $this->storeRequest = PortfolioStoreRequest::class;
+        $this->updateRequest = PortfolioUpdateRequest::class;
     }
 }

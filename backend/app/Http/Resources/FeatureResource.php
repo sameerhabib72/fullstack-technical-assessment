@@ -7,11 +7,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class FeatureResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
     public function toArray(Request $request): array
     {
         return [
@@ -19,7 +14,7 @@ class FeatureResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'icon' => $this->icon,
-            'sort_order' => $this->sort_order
+            'sort_order' => $this->sort_order,
         ];
     }
 }

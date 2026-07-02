@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ContactMessage extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['name', 'email', 'phone', 'subject', 'message', 'is_read'];
+
+    protected $fillable = [
+        'name', 'email', 'phone', 'subject', 'message', 'is_read'
+    ];
+
+    protected $casts = [
+        'is_read' => 'boolean',
+    ];
 }

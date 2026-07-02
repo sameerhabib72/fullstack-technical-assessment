@@ -18,11 +18,14 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(except: [
             'api/*', // API routes ko CSRF protection se nikal den
         ]);
-        
+
         $middleware->api(append: [
+            \App\Http\Middleware\CorsMiddleware::class, // Add this
             \App\Http\Middleware\CompressResponse::class,
+            // 'throttle:api', //remove for developement
             \App\Http\Middleware\CacheHeaders::class,
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

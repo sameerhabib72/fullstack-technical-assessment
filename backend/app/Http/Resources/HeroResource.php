@@ -7,11 +7,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class HeroResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
     public function toArray(Request $request): array
     {
         return [
@@ -21,7 +16,9 @@ class HeroResource extends JsonResource
             'cta_text' => $this->cta_text,
             'cta_url' => $this->cta_url,
             'background_image' => $this->background_image,
-            'is_active' => (bool)$this->is_active,
+            'is_active' => (bool) $this->is_active,
+            'created_at' => $this->created_at?->toISOString(),
+            'updated_at' => $this->updated_at?->toISOString(),
         ];
     }
 }

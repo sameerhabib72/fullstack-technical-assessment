@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Models\Testimonial;
+use App\Http\Controllers\Api\BaseController;
+use App\Http\Requests\TestimonialStoreRequest;
+use App\Http\Requests\TestimonialUpdateRequest;
 use App\Http\Resources\TestimonialResource;
-use App\Traits\ApiResponse;
+use App\Services\TestimonialService;
 
-class TestimonialController extends Controller
+class TestimonialController extends BaseController
 {
-    use ApiResponse;
-
-    public function index()
+    public function __construct()
     {
-        $testimonials = Testimonial::all();
-
-        return $this->successResponse(
-            TestimonialResource::collection($testimonials),
-            'Testimonials fetched successfully'
-        );
+        $this->service = app(TestimonialService::class);
+        $this->resource = TestimonialResource::class;
+        $this->storeRequest = TestimonialStoreRequest::class;
+        $this->updateRequest = TestimonialUpdateRequest::class;
     }
 }

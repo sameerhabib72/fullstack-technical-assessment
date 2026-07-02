@@ -2,25 +2,35 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Models\Faq;
+use App\Http\Controllers\Api\BaseController;
+use App\Http\Requests\FaqStoreRequest;
+use App\Http\Requests\FaqUpdateRequest;
 use App\Http\Resources\FaqResource;
-use App\Traits\ApiResponse;
+use App\Services\FaqService;
 
-class FaqController extends Controller
+class FaqController extends BaseController
 {
-    use ApiResponse;
+    public function __construct()
+    {
+        $this->service = app(FaqService::class);
+        $this->resource = FaqResource::class;
+        $this->storeRequest = FaqStoreRequest::class;
+        $this->updateRequest = FaqUpdateRequest::class;
+    }
 
+    /**
+     * Override index to get active FAQs only
+     */
     public function index()
     {
-        // Sirf active FAQs ko mangwana aur sort karna
-        $faqs = Faq::where('is_active', true)
-            ->orderBy('sort_order', 'asc')
-            ->get();
-
-        return $this->successResponse(
-            FaqResource::collection($faqs),
-            'FAQs fetched successfully'
-        );
+        try {
+            $data = $this->service->getActiveFaqs();
+            return $this->successResponse(
+                $this->resource::collection($data),
+                'FAQs fetched successfully'
+            );
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage(), 500);
+        }
     }
 }
