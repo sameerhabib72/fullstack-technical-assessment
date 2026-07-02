@@ -17,12 +17,6 @@ async function runLighthouse() {
     const reportHtml = runnerResult.report;
     fs.writeFileSync('lighthouse-report.html', reportHtml);
     
-    // Log scores
-    console.log('Performance:', runnerResult.lhr.categories.performance.score * 100);
-    console.log('Accessibility:', runnerResult.lhr.categories.accessibility.score * 100);
-    console.log('Best Practices:', runnerResult.lhr.categories['best-practices'].score * 100);
-    console.log('SEO:', runnerResult.lhr.categories.seo.score * 100);
-    
     await chrome.kill();
 }
 

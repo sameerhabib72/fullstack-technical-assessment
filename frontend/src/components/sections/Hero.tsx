@@ -73,22 +73,6 @@ const Hero = ({ data }: HeroProps) => {
               Contact Us
             </a>
           </div>
-
-          {/* Stats */}
-          {/* <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-white/10">
-                        <div>
-                            <div className="text-3xl font-bold text-white">10+</div>
-                            <div className="text-sm text-gray-400">Years Experience</div>
-                        </div>
-                        <div>
-                            <div className="text-3xl font-bold text-white">500+</div>
-                            <div className="text-sm text-gray-400">Projects Delivered</div>
-                        </div>
-                        <div>
-                            <div className="text-3xl font-bold text-white">98%</div>
-                            <div className="text-sm text-gray-400">Client Satisfaction</div>
-                        </div>
-                    </div> */}
         </div>
       </div>
 

@@ -1,6 +1,3 @@
-// ============================================
-// API Response Types (PDF 4.3)
-// ============================================
 export interface ApiResponse<T> {
     success: boolean;
     message: string;
@@ -8,9 +5,6 @@ export interface ApiResponse<T> {
     errors?: Record<string, string[]>;
 }
 
-// ============================================
-// Hero Section (PDF 4.2)
-// ============================================
 export interface HeroData {
     id: number;
     title: string;
@@ -21,9 +15,6 @@ export interface HeroData {
     is_active: boolean;
 }
 
-// ============================================
-// About Section (PDF 4.2)
-// ============================================
 export interface AboutData {
     id: number;
     title: string;
@@ -33,9 +24,6 @@ export interface AboutData {
     vision: string;
 }
 
-// ============================================
-// Services (PDF 4.2)
-// ============================================
 export interface Service {
     id: number;
     title: string;
@@ -45,9 +33,6 @@ export interface Service {
     is_active: boolean;
 }
 
-// ============================================
-// Features (PDF 4.2)
-// ============================================
 export interface Feature {
     id: number;
     title: string;
@@ -56,9 +41,6 @@ export interface Feature {
     sort_order: number;
 }
 
-// ============================================
-// Portfolio (PDF 4.2)
-// ============================================
 export interface PortfolioItem {
     id: number;
     title: string;
@@ -68,10 +50,6 @@ export interface PortfolioItem {
     url?: string;
     sort_order: number;
 }
-
-// ============================================
-// Testimonials (PDF 4.2)
-// ============================================
 export interface Testimonial {
     id: number;
     client_name: string;
@@ -82,9 +60,6 @@ export interface Testimonial {
     rating: number;
 }
 
-// ============================================
-// Team Members (PDF 4.2)
-// ============================================
 export interface TeamMember {
     id: number;
     name: string;
@@ -97,10 +72,6 @@ export interface TeamMember {
     instagram?: string;
     sort_order: number;
 }
-
-// ============================================
-// FAQ (PDF 4.2)
-// ============================================
 export interface Faq {
     id: number;
     question: string;
@@ -110,9 +81,6 @@ export interface Faq {
     is_active: boolean;
 }
 
-// ============================================
-// Contact Form (PDF 3.1)
-// ============================================
 export interface ContactFormData {
     name: string;
     email: string;
@@ -127,9 +95,6 @@ export interface ContactMessage extends ContactFormData {
     created_at: string;
 }
 
-// ============================================
-// SEO Types (PDF 5)
-// ============================================
 export interface SEOData {
     title: string;
     description: string;
